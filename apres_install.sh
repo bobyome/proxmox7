@@ -1,19 +1,19 @@
 #!/usr/bin/env bash -ex
 set -euo pipefail
 shopt -s inherit_errexit nullglob
-YW=$(echo "\033[33m")
-BL=$(echo "\033[36m")
-RD=$(echo "\033[01;31m")
-BGN=$(echo "\033[4;92m")
-GN=$(echo "\033[1;92m")
-DGN=$(echo "\033[32m")
-CL=$(echo "\033[m")
-BFR="\\r\\033[K"
-HOLD="-"
-CM="${GN}✓${CL}"
-CROSS="${RD}✗${CL}"
+#YW=$(echo "\033[33m")
+#BL=$(echo "\033[36m")
+#RD=$(echo "\033[01;31m")
+#BGN=$(echo "\033[4;92m")
+#GN=$(echo "\033[1;92m")
+#DGN=$(echo "\033[32m")
+#CL=$(echo "\033[m")
+#BFR="\\r\\033[K"
+#HOLD="-"
+#CM="${GN}✓${CL}"
+#CROSS="${RD}✗${CL}"
 clear
-echo -e "${BL}This script will Perform Post Install Routines.${CL}"
+echo -e "${BL}Ce script finalise l'installation de PVE7.${CL}"
 while true; do
     read -p "Start the PVE7 Post Install Script (y/n)?" yn
     case $yn in
