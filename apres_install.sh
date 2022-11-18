@@ -101,7 +101,7 @@ fi
 
 read -r -p "Mettre à jour Proxmox VE 7 ? <o/N> " prompt
 if [[ $prompt == "o" || $prompt == "O" || $prompt == "oui" || $prompt == "Oui" ]]; then
-    msg_info "Traitement en cours"
+    msg_info "Traitement en cours...(patience, c'est long)"
     apt-get update &>/dev/null
     apt-get -y dist-upgrade &>/dev/null
     msg_ok "Terminé..... (⚠ Redémarrer le serveur)"
