@@ -108,7 +108,7 @@ if [[ $prompt == "o" || $prompt == "O" || $prompt == "oui" || $prompt == "Oui" ]
 fi
 
 read -r -p "Redémarrer Proxmox VE 7maintenant? <o/N> " prompt
-if [[ $prompt == "o" || $prompt == "YO || $prompt == "oui" || $prompt == "Oui" ]]; then
+if [[ $prompt == "o" || $prompt == "Y" || $prompt == "oui" || $prompt == "Oui" ]]; then
     msg_info "le serveur va redémarrer"
     sleep 2
     msg_ok "Post Installation terminée"
