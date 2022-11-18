@@ -18,6 +18,8 @@ echo -e "${BL}Ce script est la version francisé du script de tteckster.${CL}"
 echo -e "${BL}Script original disponible à l'adresse : https://https://github.com/tteck${CL}"
 echo -e "${BL}Merci à lui pour ce travail magnifique${CL}"
 echo -e "****************************************************"
+msg_info "Ce script désactive les dépots Enterprise"
+msg_info "Corrige les sources pour PVE7"
 while true; do
     read -p "Lancer l'installation du Script (o/n)?" on
     case $on in
@@ -28,13 +30,13 @@ while true; do
 done
 
 if ! command -v pveversion >/dev/null 2>&1; then
-    echo -e "\n🛑  No PVE Detected, Wrong Script!\n"
+    echo -e "\n🛑  Pas de PVE Detecter, Erreur de Script!\n"
     exit 1
 fi
 
 if [ $(pveversion | grep "pve-manager/7" | wc -l) -ne 1 ]; then
-    echo -e "\n${RD}⚠ This version of Proxmox Virtual Environment is not supported"
-    echo -e "Requires PVE Version: 7.XX${CL}"
+    echo -e "\n${RD}⚠ Cette version de Proxmox Virtual Environment n'est pas supportée"
+    echo -e "Uniquement PVE Version: 7.XX${CL}"
     echo -e "\nExiting..."
     sleep 3
     exit
