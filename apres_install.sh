@@ -14,12 +14,16 @@ CM="${GN}✓${CL}"
 CROSS="${RD}✗${CL}"
 clear
 echo -e "${BL}Ce script finalise l'installation de PVE7.${CL}"
+echo -e "${BL}Ce script est la version francisé du script de tteckster.${CL}"
+echo -e "${BL}Script original disponible à l'adresse : https://https://github.com/tteck${CL}"
+echo -e "${BL}Merci à lui pour ce travail magnifique${CL}"
+echo -e "****************************************************"
 while true; do
-    read -p "Start the PVE7 Post Install Script (y/n)?" yn
-    case $yn in
-    [Yy]*) break ;;
+    read -p "Lancer l'installation du Script (o/n)?" on
+    case $on in
+    [Oo]*) break ;;
     [Nn]*) exit ;;
-    *) echo "Please answer yes or no." ;;
+    *) echo "Répondre par Oui ou Non." ;;
     esac
 done
 
