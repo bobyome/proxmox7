@@ -18,8 +18,6 @@ echo -e "${BL}Ce script est la version francisé du script de tteckster.${CL}"
 echo -e "${BL}Script original disponible à l'adresse : https://https://github.com/tteck${CL}"
 echo -e "${BL}Merci à lui pour ce travail magnifique${CL}"
 echo -e "****************************************************"
-msg_info "Ce script désactive les dépots Enterprise"
-msg_info "Corrige les sources pour PVE7"
 while true; do
     read -p "Lancer l'installation du Script (o/n)?" on
     case $on in
@@ -63,69 +61,59 @@ function msg_ok() {
 
 clear
 header_info
-read -r -p "Disable Enterprise Repository? <y/N> " prompt
-if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
-    msg_info "Disabling Enterprise Repository"
+read -r -p "Désactiver les dépots Enterprise? <o/N> " prompt
+if [[ $prompt == "o" || $prompt == "O" || $prompt == "oui" || $prompt == "Oui" ]]; then
+    msg_info "Traitement en cours"
     sleep 2
     sed -i "s/^deb/#deb/g" /etc/apt/sources.list.d/pve-enterprise.list
-    msg_ok "Disabled Enterprise Repository"
+    msg_ok "Terminé....."
 fi
 
-read -r -p "Add/Correct PVE7 Sources (sources.list)? <y/N> " prompt
-if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
-    msg_info "Adding or Correcting PVE7 Sources"
+read -r -p "Ajouter/Corriger les sources pour PVE7 (sources.list)? <o/N> " prompt
+if [[ $prompt == "o" || $prompt == "O" || $prompt == "oui" || $prompt == "Oui" ]]; then
+    msg_info "Traitement en cours"
     cat <<EOF >/etc/apt/sources.list
 deb http://ftp.debian.org/debian bullseye main contrib
 deb http://ftp.debian.org/debian bullseye-updates main contrib
 deb http://security.debian.org/debian-security bullseye-security main contrib
 EOF
     sleep 2
-    msg_ok "Added or Corrected PVE7 Sources"
+    msg_ok "Terminé....."
 fi
 
-read -r -p "Enable No-Subscription Repository? <y/N> " prompt
-if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
-    msg_info "Enabling No-Subscription Repository"
+read -r -p "Activer dépot No-Subscription ? <o/N> " prompt
+if [[ $prompt == "o" || $prompt == "O" || $prompt == "oui" || $prompt == "Oui" ]]; then
+    msg_info "Traitement en cours"
     cat <<EOF >>/etc/apt/sources.list
 deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
 EOF
     sleep 2
-    msg_ok "Enabled No-Subscription Repository"
+    msg_ok "Terminé....."
 fi
 
-read -r -p "Add (Disabled) Beta/Test Repository? <y/N> " prompt
-if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
-    msg_info "Adding Beta/Test Repository and set disabled"
-    cat <<EOF >>/etc/apt/sources.list
-# deb http://download.proxmox.com/debian/pve bullseye pvetest
-EOF
-    sleep 2
-    msg_ok "Added Beta/Test Repository"
-fi
-
-read -r -p "Disable Subscription Nag? <y/N> " prompt
-if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
-    msg_info "Disabling Subscription Nag"
+read -r -p "Désactive l'affichage Subscription ? <o/N> " prompt
+if [[ $prompt == "o" || $prompt == "O" || $prompt == "oui" || $prompt == "Oui" ]]; then
+    msg_info "Traitement en cours"
     echo "DPkg::Post-Invoke { \"dpkg -V proxmox-widget-toolkit | grep -q '/proxmoxlib\.js$'; if [ \$? -eq 1 ]; then { echo 'Removing subscription nag from UI...'; sed -i '/data.status/{s/\!//;s/Active/NoMoreNagging/}' /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js; }; fi\"; };" >/etc/apt/apt.conf.d/no-nag-script
     apt --reinstall install proxmox-widget-toolkit &>/dev/null
-    msg_ok "Disabled Subscription Nag (Delete browser cache)"
+    msg_ok "Terminé.....(Vider le cache de votre navigateur)"
 fi
 
-read -r -p "Update Proxmox VE 7 now? <y/N> " prompt
-if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
-    msg_info "Updating Proxmox VE 7 (Patience)"
+read -r -p "Mettre à jour Proxmox VE 7 ? <o/N> " prompt
+if [[ $prompt == "o" || $prompt == "O" || $prompt == "oui" || $prompt == "Oui" ]]; then
+    msg_info "Traitement en cours"
     apt-get update &>/dev/null
     apt-get -y dist-upgrade &>/dev/null
-    msg_ok "Updated Proxmox VE 7 (⚠ Reboot Recommended)"
+    msg_ok "Terminé..... (⚠ Redémarrer le serveur)"
 fi
 
-read -r -p "Reboot Proxmox VE 7 now? <y/N> " prompt
-if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
-    msg_info "Rebooting Proxmox VE 7"
+read -r -p "Redémarrer Proxmox VE 7maintenant? <o/N> " prompt
+if [[ $prompt == "o" || $prompt == "YO || $prompt == "oui" || $prompt == "Oui" ]]; then
+    msg_info "le serveur va redémarrer"
     sleep 2
-    msg_ok "Completed Post Install Routines"
+    msg_ok "Post Installation terminée"
     reboot
 fi
 
 sleep 2
-msg_ok "Completed Post Install Routines"
+msg_ok "Post Installation terminée"
