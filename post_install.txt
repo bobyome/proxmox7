@@ -1,0 +1,2 @@
+Le script post_install.sh permet de finaliser l'installation de Proxmox Virtual Environement 7
+
