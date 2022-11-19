@@ -1,8 +1,11 @@
 Le script post_install.sh permet de finaliser l'installation de Proxmox Virtual Environement 7.
 
 Ce script finalise l'installation de PVE7.
+
 Ce script est la version francisé du script de tteckster.
-Script original disponible à l'adresse : https://https://github.com/tteck
+
+Script original disponible à l'adresse : https://github.com/tteck
+
 Merci à lui pour ce travail magnifique.
 
 
