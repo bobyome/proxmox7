@@ -15,7 +15,7 @@ CROSS="${RD}✗${CL}"
 clear
 echo -e "${BL}Ce script finalise l'installation de PVE7.${CL}"
 echo -e "${BL}Ce script est la version francisé du script de tteckster.${CL}"
-echo -e "${BL}Script original disponible à l'adresse : https://https://github.com/tteck${CL}"
+echo -e "${BL}Script original disponible à l'adresse : https://github.com/tteck${CL}"
 echo -e "${BL}Merci à lui pour ce travail magnifique${CL}"
 echo -e "****************************************************"
 while true; do
