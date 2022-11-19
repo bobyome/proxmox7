@@ -1,6 +1,7 @@
 # proxmox7
 
 Un serveur pour faire quoi ?
+
 Garder la maitrise de ses données et rester autonome
 (ne pas passer par le cloud)
 
@@ -14,4 +15,5 @@ Garder la maitrise de ses données et rester autonome
 - Gérer ses caméras de video surveillance
 
 Proxmox est un hyperviseur c'est à dire qu'il va gérer des machines virtuelles (pc)
+
 Et se sont ces machines virtuelles qui vont exécuter les taches ci-dessus.
