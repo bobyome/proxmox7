@@ -19,4 +19,5 @@ Merci à lui pour ce travail magnifique.
 
 
 Commande à taper dans la console de Proxmox :
-post_install.sh
+
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/bobyome/proxmox7/main/post_install.sh)"
