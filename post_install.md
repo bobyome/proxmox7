@@ -16,3 +16,7 @@ Merci à lui pour ce travail magnifique.
  - Désactive l'affichage Subscription
  - Mettre à jour Proxmox VE 7
  - Et enfin redémarre la machine
+
+
+Commande à taper dans la console de Proxmox :
+post_install.sh
