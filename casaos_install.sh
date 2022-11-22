@@ -70,31 +70,31 @@ function PVE_CHECK() {
   fi
 }
 function default_settings() {
-  echo -e "${DGN}Using Container Type: ${BGN}Unprivileged${CL} ${RD}NO DEVICE PASSTHROUGH${CL}"
+  echo -e "${DGN}Type de  Container: ${BGN}Unprivileged${CL} ${RD}NO DEVICE PASSTHROUGH${CL}"
   CT_TYPE="1"
-  echo -e "${DGN}Using Root Password: ${BGN}Automatic Login${CL}"
+  echo -e "${DGN}Mot de passe Root: ${BGN}Automatic Login${CL}"
   PW=""
-  echo -e "${DGN}Using Container ID: ${BGN}$NEXTID${CL}"
+  echo -e "${DGN}ID du Container: ${BGN}$NEXTID${CL}"
   CT_ID=$NEXTID
-  echo -e "${DGN}Using Hostname: ${BGN}$NSAPP${CL}"
+  echo -e "${DGN}Nom Hostname: ${BGN}$NSAPP${CL}"
   HN=$NSAPP
-  echo -e "${DGN}Using Disk Size: ${BGN}$var_disk${CL}${DGN}GB${CL}"
+  echo -e "${DGN}Taille du disque dur: ${BGN}$var_disk${CL}${DGN}GB${CL}"
   DISK_SIZE="$var_disk"
-  echo -e "${DGN}Allocated Cores ${BGN}$var_cpu${CL}"
+  echo -e "${DGN}Nombre de Cores CPU alloués ${BGN}$var_cpu${CL}"
   CORE_COUNT="$var_cpu"
-  echo -e "${DGN}Allocated Ram ${BGN}$var_ram${CL}"
+  echo -e "${DGN}Quantité de Ram allouée ${BGN}$var_ram${CL}"
   RAM_SIZE="$var_ram"
-  echo -e "${DGN}Using Bridge: ${BGN}vmbr0${CL}"
+  echo -e "${DGN}Interface Réseau (Bridge): ${BGN}vmbr0${CL}"
   BRG="vmbr0"
-  echo -e "${DGN}Using Static IP Address: ${BGN}dhcp${CL}"
+  echo -e "${DGN}Adresse IP: ${BGN}dhcp${CL}"
   NET=dhcp
-  echo -e "${DGN}Using Gateway Address: ${BGN}Default${CL}"
+  echo -e "${DGN}Passerelle réseau: ${BGN}Default${CL}"
   GATE=""
-  echo -e "${DGN}Using MAC Address: ${BGN}Default${CL}"
+  echo -e "${DGN}Adresse MAC: ${BGN}Default${CL}"
   MAC=""
-  echo -e "${DGN}Using VLAN Tag: ${BGN}Default${CL}"
+  echo -e "${DGN}Réseau vituel (VLAN): ${BGN}Default${CL}"
   VLAN=""
-  echo -e "${BL}Creating a ${APP} LXC using the above default settings${CL}"
+  echo -e "${BL}Création du Container ${APP} LXC en utilisant les paramètres ${CL}"
 }
 function advanced_settings() {
   CT_TYPE=$(whiptail --title "Config Type de CONTAINER" --radiolist --cancel-button Exit-Script "Choose Type" 8 58 2 \
